@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Sarittawat Yotdechakit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="video-bg">
+        <iframe src="https://www.youtube.com/embed/rTtMtX2B9ps?autoplay=1&mute=0&loop=1&playlist=rTtMtX2B9ps&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="fire-border"></div>
+
+    <header>
+        <nav>
+            <div class="logo">PANGPOND<span class="highlight">.PORT</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="profile.html">ประวัติส่วนตัว</a></li>
+                <li><a href="education.html" class="active">การศึกษา</a></li>
+                <li><a href="hobby.html">งานอดิเรก</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2 class="page-title">ประวัติ<span class="highlight">การศึกษา</span></h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-card lava-box">
+                    <h3>ระดับประถมศึกษา</h3>
+                    <h4 class="highlight">โรงเรียนศรีจอมทอง</h4>
+                    <p>สำเร็จการศึกษาระดับประถมศึกษาด้วยพื้นฐานที่ดี</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-card lava-box">
+                    <h3>ระดับมัธยมศึกษาตอนต้น (ปัจจุบัน)</h3>
+                    <h4 class="highlight">โรงเรียนจอมทอง</h4>
+                    <p><strong>ระดับชั้น:</strong> ม.3/2</p>
+                    <p><strong>เกรดเฉลี่ยสะสม (GPAX):</strong> 4.00 🏆</p>
+                    <p><strong>วิชาที่ชอบ:</strong> คณิตศาสตร์, ภาษาอังกฤษ</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-card lava-box outline-card">
+                    <h3>เป้าหมายในอนาคต (ม.ปลาย)</h3>
+                    <h4 class="highlight">สายการเรียน วิทย์-คณิต</h4>
+                    <p>มีความสนใจและตั้งเป้าหมายที่จะศึกษาต่อในสายวิชาวิทยาศาสตร์-คณิตศาสตร์ เพื่อนำไปต่อยอดในสายงานด้านเทคโนโลยีครับ</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>PANGPOND.PORT © 2024 | ศริตวรรธน์ ยศเดชากิตติ์ ชั้น ม.3/2</p>
+    </footer>
+
+    <script>
+        document.addEventListener('click', function(e) {
+            let explosion = document.createElement('div');
+            explosion.className = 'magma-explosion';
+            explosion.style.left = e.pageX + 'px';
+            explosion.style.top = e.pageY + 'px';
+            document.body.appendChild(explosion);
+            setTimeout(() => { explosion.remove(); }, 600);
+        });
+    </script>
+</body>
+</html>
