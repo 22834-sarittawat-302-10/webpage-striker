@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Sarittawat Yotdechakit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="video-bg">
+        <iframe src="https://www.youtube.com/embed/rTtMtX2B9ps?autoplay=1&mute=0&loop=1&playlist=rTtMtX2B9ps&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="fire-border"></div>
+
+    <header>
+        <nav>
+            <div class="logo">PANGPOND<span class="highlight">.PORT</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="profile.html">ประวัติส่วนตัว</a></li>
+                <li><a href="education.html">การศึกษา</a></li>
+                <li><a href="hobby.html">งานอดิเรก</a></li>
+                <li><a href="contact.html" class="active">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2 class="page-title">ช่องทางการ<span class="highlight">ติดต่อ</span></h2>
+        
+        <div class="contact-wrapper">
+            <div class="contact-header glass-card lava-box text-center mb-2">
+                <h3>สามารถติดต่อฉันได้ที่ช่องทางด้านล่างนี้เลยครับ 🔥</h3>
+            </div>
+
+            <div class="contact-grid">
+                <a href="mailto:22834@chomthong.ac.th" class="contact-card glass-card lava-box">
+                    <div class="contact-icon">📧</div>
+                    <h4>Email</h4>
+                    <p>22834@chomthong.ac.th</p>
+                </a>
+
+                <div class="contact-card glass-card lava-box">
+                    <div class="contact-icon">📘</div>
+                    <h4>Facebook</h4>
+                    <p>ศริตวรรธน์ ยศเดชากิตติ์</p>
+                </div>
+
+                <div class="contact-card glass-card lava-box">
+                    <div class="contact-icon">📸</div>
+                    <h4>Instagram</h4>
+                    <p>pang.za</p>
+                </div>
+
+                <div class="contact-card glass-card lava-box">
+                    <div class="contact-icon">💬</div>
+                    <h4>Line ID</h4>
+                    <p>ศริตวรรธน์</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>PANGPOND.PORT © 2024 | ศริตวรรธน์ ยศเดชากิตติ์ ชั้น ม.3/2</p>
+    </footer>
+
+    <script>
+        document.addEventListener('click', function(e) {
+            let explosion = document.createElement('div');
+            explosion.className = 'magma-explosion';
+            explosion.style.left = e.pageX + 'px';
+            explosion.style.top = e.pageY + 'px';
+            document.body.appendChild(explosion);
+            setTimeout(() => { explosion.remove(); }, 600);
+        });
+    </script>
+</body>
+</html>
