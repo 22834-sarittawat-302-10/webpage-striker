@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Sarittawat Yotdechakit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-bg">
+        <iframe src="https://www.youtube.com/embed/rTtMtX2B9ps?autoplay=1&mute=0&loop=1&playlist=rTtMtX2B9ps&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <!-- Fire Border Effect -->
+    <div class="fire-border"></div>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">PANGPOND<span class="highlight">.PORT</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">หน้าแรก</a></li>
+                <li><a href="profile.html">ประวัติส่วนตัว</a></li>
+                <li><a href="education.html">การศึกษา</a></li>
+                <li><a href="hobby.html">งานอดิเรก</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero-section">
+            <div class="hero-content glass-card lava-box">
+                <h1>สวัสดีครับ! ผม <span class="highlight">ปังปอนด์</span></h1>
+                <h2>ศริตวรรธน์ ยศเดชากิตติ์</h2>
+                <p class="tagline">" นักเรียน ม.3 ที่หลงใหลในเทคโนโลยีและการออกแบบ "</p>
+                <div class="quote-box">
+                    <p>คติประจำใจ: <strong>It's lapis</strong></p>
+                </div>
+                <div class="btn-group">
+                    <a href="profile.html" class="btn btn-primary">รู้จักฉันมากขึ้น</a>
+                    <a href="hobby.html" class="btn btn-outline">ดูงานอดิเรกของฉัน</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="img-wrapper lava-box">
+                    <img src="https://www.khaosod.co.th/wpapp/uploads/2019/06/62216820_2484852834909243_7694992050374049792_n.jpg" alt="รูปโปรไฟล์ของศริตวรรธน์">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>PANGPOND.PORT © 2024 | ศริตวรรธน์ ยศเดชากิตติ์ ชั้น ม.3/2</p>
+    </footer>
+
+    <!-- Magma Click Effect Script -->
+    <script>
+        document.addEventListener('click', function(e) {
+            let explosion = document.createElement('div');
+            explosion.className = 'magma-explosion';
+            explosion.style.left = e.pageX + 'px';
+            explosion.style.top = e.pageY + 'px';
+            document.body.appendChild(explosion);
+            setTimeout(() => { explosion.remove(); }, 600);
+        });
+    </script>
+</body>
+</html>
