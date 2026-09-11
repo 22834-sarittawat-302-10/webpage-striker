@@ -1,0 +1,335 @@
+/* =========================================
+   1. Google Fonts & Base Setup
+========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+    /* Custom Cursor: Fire Claw */
+    cursor: url('https://cur.cursors-4u.net/games/gam-14/gam1302.cur'), auto; 
+}
+
+:root {
+    --primary-color: #FF4500; /* Orange Red */
+    --secondary-color: #FFA500; /* Orange */
+    --dark-bg: rgba(20, 5, 0, 0.85); /* Dark Glass */
+    --text-light: #ffffff;
+    --text-muted: #dddddd;
+    --lava-gradient: linear-gradient(45deg, #8B0000, #FF4500, #FFA500);
+}
+
+body {
+    background-color: #000;
+    color: var(--text-light);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================================
+   2. Background & Fire Effects
+========================================= */
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    overflow: hidden;
+    background: #000;
+}
+.video-bg iframe {
+    width: 100vw;
+    height: 56.25vw; /* 16:9 Aspect Ratio */
+    min-height: 100vh;
+    min-width: 177.77vh; /* 16:9 Aspect Ratio */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0.8; /* ให้สว่างแต่พอดี */
+}
+
+/* เปลวไฟขอบจอ */
+.fire-border {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: url('https://i.gifer.com/origin/79/791b8979efec10e352ab5f7935de984e_w200.gif') repeat-x bottom;
+    background-size: contain;
+    z-index: -1;
+    opacity: 0.7;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+/* Magma Explosion on Click */
+.magma-explosion {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, #ffea00 0%, #ff4500 40%, #8b0000 80%, transparent 100%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    pointer-events: none;
+    z-index: 9999;
+    animation: explode 0.6s ease-out forwards;
+    box-shadow: 0 0 20px #ff4500, 0 0 40px #ff0000;
+}
+
+@keyframes explode {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) scale(4); opacity: 0; }
+}
+
+/* =========================================
+   3. Typography & Utilities
+========================================= */
+a { text-decoration: none; color: inherit; cursor: inherit; }
+li { list-style: none; }
+.highlight { color: var(--primary-color); text-shadow: 0 0 10px rgba(255, 69, 0, 0.8); }
+.text-center { text-align: center; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-2 { margin-bottom: 2rem; }
+.container { max-width: 1100px; margin: 100px auto 40px; padding: 0 20px; flex-grow: 1; }
+.page-title { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 2px; }
+
+/* =========================================
+   4. Glassmorphism & Lava Cards
+========================================= */
+.glass-card {
+    background: var(--dark-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 69, 0, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Lava Drip Effect (หยดลาวา) */
+.lava-box::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 5px;
+    background: var(--lava-gradient);
+    box-shadow: 0 0 15px var(--primary-color);
+    animation: lavaFlow 3s infinite alternate ease-in-out;
+}
+@keyframes lavaFlow {
+    0% { filter: hue-rotate(0deg); box-shadow: 0 0 10px #FF4500, 0 5px 5px #FF0000; }
+    100% { filter: hue-rotate(-20deg); box-shadow: 0 0 20px #FFA500, 0 8px 10px #FF4500; }
+}
+
+/* =========================================
+   5. Navigation Bar
+========================================= */
+header {
+    position: fixed;
+    top: 0; width: 100%;
+    background: rgba(10, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 2px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(255, 69, 0, 0.5);
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
+.logo { font-size: 1.8rem; font-weight: 800; letter-spacing: 1px; }
+.nav-links { display: flex; gap: 20px; }
+.nav-links a {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+.nav-links a:hover, .nav-links a.active {
+    background: var(--lava-gradient);
+    color: #fff;
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* =========================================
+   6. Hero Section (Index)
+========================================= */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 120px auto 40px;
+    padding: 0 20px;
+    gap: 40px;
+    min-height: 70vh;
+}
+.hero-content { flex: 1; animation: slideUp 1s ease; }
+.hero-content h1 { font-size: 3rem; margin-bottom: 10px; }
+.hero-content h2 { font-size: 2rem; color: var(--text-muted); margin-bottom: 15px; }
+.tagline { font-size: 1.2rem; font-style: italic; margin-bottom: 20px; color: var(--secondary-color); }
+.quote-box {
+    background: rgba(255, 69, 0, 0.2);
+    border-left: 4px solid var(--primary-color);
+    padding: 10px 15px;
+    margin-bottom: 25px;
+    border-radius: 0 10px 10px 0;
+}
+.btn-group { display: flex; gap: 15px; }
+.btn {
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+.btn-primary {
+    background: var(--lava-gradient);
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.6);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 69, 0, 0.9); }
+.btn-outline {
+    border: 2px solid var(--primary-color);
+    background: transparent;
+}
+.btn-outline:hover { background: var(--primary-color); box-shadow: 0 4px 15px rgba(255, 69, 0, 0.6); }
+
+.hero-image { flex: 1; display: flex; justify-content: center; animation: fadeIn 1.5s ease; }
+.img-wrapper {
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    padding: 10px;
+    background: var(--lava-gradient);
+    box-shadow: 0 0 30px rgba(255, 69, 0, 0.8);
+    position: relative;
+}
+.img-wrapper img {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #111;
+}
+
+/* =========================================
+   7. Profile Section
+========================================= */
+.profile-section { display: flex; gap: 30px; animation: slideUp 1s ease; }
+.profile-left { flex: 1; text-align: center; }
+.profile-img-large {
+    width: 250px; height: 250px;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
+}
+.profile-right { flex: 2; display: flex; flex-direction: column; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.info-item { display: flex; flex-direction: column; gap: 5px; }
+.info-item .label { color: var(--secondary-color); font-size: 0.9rem; text-transform: uppercase; }
+.info-item .value { font-size: 1.1rem; font-weight: 600; }
+.about-text { line-height: 1.8; color: var(--text-muted); margin-top: 10px; }
+
+/* =========================================
+   8. Education Timeline
+========================================= */
+.timeline { position: relative; max-width: 800px; margin: 0 auto; animation: slideUp 1s ease; }
+.timeline::before {
+    content: ''; position: absolute;
+    width: 4px; background: var(--lava-gradient);
+    top: 0; bottom: 0; left: 20px;
+    border-radius: 2px;
+}
+.timeline-item { position: relative; margin-bottom: 40px; padding-left: 60px; }
+.timeline-dot {
+    position: absolute; left: 12px; top: 20px;
+    width: 20px; height: 20px;
+    background: #000; border: 4px solid var(--primary-color);
+    border-radius: 50%; box-shadow: 0 0 10px var(--primary-color);
+}
+.timeline-content h3 { color: var(--text-muted); font-size: 1rem; margin-bottom: 5px; }
+.timeline-content h4 { font-size: 1.5rem; margin-bottom: 15px; }
+.outline-card { border: 2px dashed var(--secondary-color); }
+
+/* =========================================
+   9. Hobby Grid
+========================================= */
+.hobby-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px; animation: fadeIn 1s ease;
+}
+.hobby-card { text-align: center; transition: all 0.4s ease; }
+.hobby-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(255, 69, 0, 0.7);
+    border-color: var(--secondary-color);
+}
+.hobby-icon { font-size: 3rem; margin-bottom: 15px; text-shadow: 0 0 15px rgba(255, 255, 255, 0.5); }
+.hobby-card h3 { color: var(--primary-color); margin-bottom: 10px; }
+
+/* =========================================
+   10. Contact Section
+========================================= */
+.contact-wrapper { max-width: 800px; margin: 0 auto; animation: slideUp 1s ease; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.contact-card { text-align: center; display: block; transition: 0.3s; }
+.contact-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255, 69, 0, 0.6); }
+.contact-icon { font-size: 2.5rem; margin-bottom: 10px; }
+.contact-card h4 { color: var(--secondary-color); margin-bottom: 5px; }
+
+/* =========================================
+   11. Footer
+========================================= */
+footer {
+    background: #050100;
+    text-align: center; padding: 20px;
+    border-top: 2px solid #8B0000;
+    margin-top: auto;
+}
+footer p { color: var(--text-muted); font-size: 0.9rem; }
+
+/* =========================================
+   12. Animations
+========================================= */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* =========================================
+   13. Responsive Design
+========================================= */
+@media (max-width: 768px) {
+    .nav-links { display: none; /* สำหรับมือถือจริงๆ ควรทำ Hamburger menu แต่นี่จัดแบบง่ายให้ก่อน */ }
+    nav { justify-content: center; flex-direction: column; gap: 10px; }
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: center; font-size: 0.8rem; gap: 10px; }
+    .nav-links a { padding: 5px 10px; }
+    
+    .hero-section { flex-direction: column-reverse; text-align: center; margin-top: 150px; }
+    .btn-group { justify-content: center; }
+    .img-wrapper { width: 250px; height: 250px; }
+    
+    .profile-section { flex-direction: column; }
+    .info-grid { grid-template-columns: 1fr; }
+}
