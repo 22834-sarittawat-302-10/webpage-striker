@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Sarittawat Yotdechakit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="video-bg">
+        <iframe src="https://www.youtube.com/embed/rTtMtX2B9ps?autoplay=1&mute=0&loop=1&playlist=rTtMtX2B9ps&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="fire-border"></div>
+
+    <header>
+        <nav>
+            <div class="logo">PANGPOND<span class="highlight">.PORT</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="profile.html" class="active">ประวัติส่วนตัว</a></li>
+                <li><a href="education.html">การศึกษา</a></li>
+                <li><a href="hobby.html">งานอดิเรก</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2 class="page-title">ประวัติ<span class="highlight">ส่วนตัว</span></h2>
+        
+        <section class="profile-section">
+            <div class="profile-left glass-card lava-box">
+                <img src="https://www.khaosod.co.th/wpapp/uploads/2019/06/62216820_2484852834909243_7694992050374049792_n.jpg" alt="Profile ปังปอนด์" class="profile-img-large">
+                <h3 class="mt-1">ปังปอนด์</h3>
+                <p>อายุ 14 ปี</p>
+            </div>
+            
+            <div class="profile-right">
+                <div class="glass-card lava-box info-grid">
+                    <div class="info-item">
+                        <span class="label">ชื่อ-นามสกุล (TH):</span>
+                        <span class="value">ศริตวรรธน์ ยศเดชากิตติ์</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">ชื่อ-นามสกุล (EN):</span>
+                        <span class="value">Sarittawat Yotdechakit</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">วัน/เดือน/ปีเกิด:</span>
+                        <span class="value">28 มีนาคม 2555</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">จังหวัดที่อยู่:</span>
+                        <span class="value">เชียงใหม่</span>
+                    </div>
+                </div>
+
+                <div class="glass-card lava-box mt-2">
+                    <h3 class="highlight">เกี่ยวกับฉัน (About Me)</h3>
+                    <p class="about-text">สวัสดีครับ ผมปังปอนด์ เป็นเด็กเชียงใหม่ที่มีความชื่นชอบในเรื่องของการออกแบบและเทคโนโลยี ผมชอบเรียนรู้สิ่งใหม่ๆ อยู่เสมอ และมีความมุ่งมั่นที่จะพัฒนาตัวเองในด้านที่สนใจครับ</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>PANGPOND.PORT © 2024 | ศริตวรรธน์ ยศเดชากิตติ์ ชั้น ม.3/2</p>
+    </footer>
+
+    <script>
+        document.addEventListener('click', function(e) {
+            let explosion = document.createElement('div');
+            explosion.className = 'magma-explosion';
+            explosion.style.left = e.pageX + 'px';
+            explosion.style.top = e.pageY + 'px';
+            document.body.appendChild(explosion);
+            setTimeout(() => { explosion.remove(); }, 600);
+        });
+    </script>
+</body>
+</html>
